@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: rgb(159, 159, 241); */
+}
+
+div.parent-card {
+  width: 550px;
+  margin: 200px auto;
+  background: white;
+  height: 450px;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 1px 0.5px rgb(0, 0, 0, 0.5);
+  padding: 10px;
+}
+h2 {
+  text-align: center;
+}
