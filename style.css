@@ -11,7 +11,7 @@ body {
 
 div.parent-card {
   width: 550px;
-  margin: 200px auto;
+  margin: 150px auto;
   background: white;
   height: 450px;
   border-radius: 5px;
@@ -25,28 +25,52 @@ h1 {
   border-bottom: 1px solid #333;
   padding-bottom: 20px;
 }
-.quizz{
-    padding: 20px 0;
+.quizz {
+  padding: 20px 0;
 }
-.quizz h2{
-    font-size: 18px;
+.quizz h2 {
+  font-size: 18px;
 }
-button.btn{
-    background: #fff;
-    border: 1px solid #222;
-    color: #222;
-    font-weight: 500;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.5s;
+button.btn {
+  background: #fff;
+  border: 1px solid #001e4d;
+  color: #001e4d;
+  font-weight: 500;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.5s;
 }
 
-button.btn:hover{
-    background: #222;
-    color: white;
+button.btn:hover:not([disabled]) {
+  background: #001e4d;
+  color: white;
+}
+button.btn:disabled {
+  cursor: no-drop;
+}
 
+button#next-btn {
+  background: #001e4d;
+  color: white;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+}
+
+button.correct {
+  background: #9aeabc;
+  border: #9aeabc 1px solid;
+}
+button.incorrect {
+  background: #ff9393;
+  border: #ff9393 1px solid;
 }
