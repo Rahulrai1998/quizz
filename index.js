@@ -42,6 +42,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerBtn = document.getElementById("answer-btns");
 const nextBtn = document.getElementById("next-btn");
+const parentCard = document.getElementById("parent-card");
 
 let currentQuestionNumber = 0;
 let score = 0;
@@ -89,8 +90,13 @@ function showCorrectAnswer(e) {
   if (isCorrectAns === "true") {
     selectedBtn.classList.add("correct");
     // selectedBtn.disabled = true;
+    parentCard.style.boxShadow = "0.5px 0.5px 1px 0.5px #9aeabc";
+    nextBtn.style.backgroundColor = "#9aeabc";
     score++;
   } else if (isCorrectAns === "false") {
+    parentCard.style.boxShadow = "0.5px 0.5px 1px 0.5px #ff9393";
+    nextBtn.style.backgroundColor = "#ff9393";
+
     selectedBtn.classList.add("incorrect");
   }
 
@@ -104,8 +110,32 @@ function showCorrectAnswer(e) {
   nextBtn.style.display = "block";
 }
 
-nextBtn.addEventListener("click", () => {
+const showScore = () => {
+  resetPreviousQuestions();
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  nextBtn.style.display = "block";
+  nextBtn.style.backgroundColor = "#001e4d";
+  parentCard.style.boxShadow = "0.5px 0.5px 1px 0.5px rgb(0, 0, 0, 0.5)";
 
-  
+  nextBtn.innerHTML = "Play Again";
+};
+
+function handleNextButton() {
+  parentCard.style.boxShadow = "0.5px 0.5px 1px 0.5px rgb(0, 0, 0, 0.5)";
+  currentQuestionIndex++;
+  currentQuestionIndex < questions.length;
+  if (currentQuestionIndex < questions.length) {
+    showQuestions();
+  } else {
+    showScore();
+  }
+}
+
+nextBtn.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
 });
 startQuiz();
